@@ -61,5 +61,46 @@ start.style.display = "block";
 guide.style.display = "none";
 })
 
+//Creating Timer For Quiz Timer Section
 
+let countDown = () =>{
+	if(timer === 20)
+	{
+   		clearInterval(interval);
+           next_question.click();
+	}
+	else 
+	    {
+   		 timer++;
+            time.innerText = timer;
+	    }
 
+}
+
+setInterval(countDown, 1000);
+
+let loadData = () =>{
+    questionNo.innerText = index + 1 + ". ";
+    questionText.innerText = MCQS[index].question;
+    option1.innerText = MCQS[index].choice1;
+    option2.innerText = MCQS[index].choice2;
+    option3.innerText = MCQS[index].choice3;
+    option4.innerText = MCQS[index].choice4;
+
+    //timer start 
+     timer = 0;
+}
+
+loadData();
+
+//What happen when 'Continue' Button will Click
+
+continueBtn.addEventListener("click" , ()=> {
+    quiz.style.display = "block";
+    guide.style.display = "none";
+   
+     interval = setInterval();
+     loadData();
+  
+  });
+  
