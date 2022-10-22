@@ -295,15 +295,15 @@
   }
 
 #container #result button{
- height: 60px;
- width: 260px;
+ height: 40px;
+ width: 200px;
  border: none;
  outline: none;
  background: #ff5235;
  color: #e7f1fa;
  position: absolute;
  left: 105px;
- top: 335px;
+ top: 361px;
  border: 1px solid #b0c4d8;
  border-radius: 20px 5px;
  font-size: 18px;
