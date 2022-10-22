@@ -159,7 +159,7 @@ for(i = 0;  i<= 3; i++)
      {
         index = 0;
 
-        
+
         // when quiz question is completed display result section
         clearInterval(interval);
         quiz.style.display ="none";
