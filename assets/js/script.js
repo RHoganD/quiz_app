@@ -35,7 +35,7 @@ let startAgain = document.querySelector("#startAgain");
 
 //Get all 'H4' From Quiz Section (MCQS)
 
-let choice_que = document.querySelector(".choice_que");
+let choice_que = document.querySelectorAll(".choice_que");
 
 
 let index = 0;
@@ -101,5 +101,77 @@ continueBtn.addEventListener("click" , ()=> {
    
      interval = setInterval(countDown, 1000);
      loadData();
+
+      // remove All Active Classes when continue Button will click
+   choice_que.forEach(removeActive => {
+    removeActive.classList.remove("active");
+})
+
+// total_correct.innerHTML = `${correct = 0} Out Of ${MCQS.length} Questions`;
     });
-  
+
+    choice_que.forEach( (choices,choiceNo) =>{
+    choices.addEventListener("click" , ()=>{
+    choices.classList.add("active");
+
+       //check answer
+  if(choiceNo === MCQS[index].answer)
+  {
+      correct++;
+  }
+   else
+  {
+       correct += 0;
+  }
+//Stop Counter
+clearInterval(interval);
+
+//disable All options when User Select and Option
+for(i = 0;  i <= 3; i++)
+{
+  choice_que[i].classList.add("disabled");
+}
+
+    })
+ });
+
+
+//What happen when 'Next' Button will Click
+
+next_question.addEventListener("click" , ()=> {
+    //if index is less then MCQS.length
+      
+       if(index !== MCQS.length - 1) {
+          index++;
+          choice_que.forEach(removeActive => {
+            removeActive.classList.remove("active");
+         })
+    
+      //Question
+      loadData();
+      
+    //Result
+      total_correct.style.display ="block"
+      total_correct.innerHTML = `${correct} Out Of ${MCQS.length} Questions`;
+      clearInterval(interval);
+      interval = setInterval(countDown , 1000);
+        }
+    
+     else
+    {
+      index = 0;
+    
+    }
+     for(i = 0;  i <= 3; i++)
+         {
+           choice_que[i].classList.remove("disabled");
+         }
+    
+    });
+    
+
+
+
+
+
+        
