@@ -79,7 +79,7 @@ let countDown = () =>{
 
 setInterval(countDown, 1000);
 
-let loadData = () =>{
+let loadData = ()=>{
     questionNo.innerText = index + 1 + ". ";
     questionText.innerText = MCQS[index].question;
     option1.innerText = MCQS[index].choice1;
@@ -99,8 +99,7 @@ continueBtn.addEventListener("click" , ()=> {
     quiz.style.display = "block";
     guide.style.display = "none";
    
-     interval = setInterval();
+     interval = setInterval(countDown, 1000);
      loadData();
-  
-  });
+    });
   
