@@ -158,6 +158,8 @@ for(i = 0;  i<= 3; i++)
      else 
      {
         index = 0;
+
+        
         // when quiz question is completed display result section
         clearInterval(interval);
         quiz.style.display ="none";
@@ -167,10 +169,18 @@ for(i = 0;  i<= 3; i++)
      }
      for (i = 0; i<= 3; i++){
       choice_que[i].classList.remove("disabled");
-     }
-     
+     }   
+})
 
-     
-});
+ //What happen when 'quiz' Button will Click
+  quit.addEventListener("click" , () => {
+  start.style.display = "block";
+  result.style.display = "none";
+    });
 
-
+//What happen when 'Start Again' Button will Click
+  startAgain.addEventListener("click" , () => {
+  guide.style.display = "block";
+  result.style.display = "none";
+  
+  });
